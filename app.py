@@ -3,7 +3,7 @@ import cv2
 import time
 import sys
 import os
-from ffpyplayer.player import MediaPlayer
+from ffpyplayer.player import MediaPlayer 
 
 video_path = sys.argv[1]
 
@@ -32,11 +32,8 @@ while True:
         now = time.time()
 
         #Do your thing
-        #frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
         frame = Image.fromarray(frame)
-        # terminla size of both windows and linux
-        width, height = os.get_terminal_size()
-        #
+        
         frame = frame.resize((os.get_terminal_size().columns, os.get_terminal_size().lines))
         ascii_image(frame)
 
@@ -46,8 +43,3 @@ while True:
 
     else:
         break
-
-player.close()
-cv2.release()
-cv2.destroyAllWindows()
-sys.exit(0)
